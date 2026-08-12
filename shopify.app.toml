@@ -1,0 +1,29 @@
+name = "Product Manager"
+
+client_id = "be71a7f78d1d3767f6b9be9eb6fdcb44"
+
+application_url = "https://example.com"
+
+embedded = true
+
+[access_scopes]
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://example.com/auth/callback"
+]
+
+[webhooks]
+api_version = "2025-10"
+
+[[webhooks.subscriptions]]
+uri = "/webhooks/app/uninstalled"
+topics = ["app/uninstalled"]
+
+[[webhooks.subscriptions]]
+topics = ["app/scopes_update"]
+uri = "/webhooks/app/scopes_update"
+
+[build]
+automatically_update_urls_on_dev = true
